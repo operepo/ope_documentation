@@ -159,6 +159,10 @@ Use this method to get everything ready to do development.
 Revising to use dockerhub to pull built images as well as include client tools/etc...
 This is currently in process and could mean breaking changes to the prev build process.
 
+
+## Github / Why / How
+https://medium.freecodecamp.org/a-developers-introduction-to-github-1034fa55c0db
+
 ## DHCP Settings - to allow FOG Server to do network imaging with PXE Boot
 
 ### DHCP Settings for Endian Firewall
