@@ -9,7 +9,8 @@ For the LMS app to work, you need to run the laptop credential tool which applie
 3. Clone or update the git folder
     * To clone - right click and choose clone:
         - ![Git Clone - Right Click Menu]( ./git_clone_right_click.png "Git Clone - Right Click")
-        - Clone from SMC: ` git://smc.ed/ope_laptop_binaries.git ` ![Git Clone - Address](./git_clone_address.png "Git Clone - Address)
+        - Clone from SMC: ` git://smc.ed/ope_laptop_binaries.git `
+ ![Git Clone - Address](./git_clone_address.png "Git Clone - Address")
     * To update - you can right click on the ope_laptop_binaries folder and choose Git -> Pull. Running the CredentialLaptop.cmd file should also do this as a first step.
 4. Run "CredentialLaptop.cmd".  This will install needed apps, setup security, and do the credential process.
 5. Final Steps:
