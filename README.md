@@ -27,6 +27,121 @@ This project consists of building and staging of apps, easy deployment into faci
 - Fabrication
     - Kristopher Margart <kwmargart@DOC1.WA.GOV>
 
+# Documentation
+You can find documentation here: https://github.com/operepo/ope_documentation
+And video tutorials here: https://github.com/operepo/ope_vids
+    
+# Available Apps
+
+## Required Apps
+Some apps are needed so that the system will run properly
+
+### Gateway
+name: ope-gateway
+DNS: gateway.ed
+Reverse proxy/nginx to allow web traffic using a shared IP
+
+### Router
+Name: ope-router
+DNS: router.ed
+Deals with multicast routing and firewall rules
+
+### DNS
+Name: ope-dns
+DNS: dns.ed
+Status: required/stable
+Deals with DNS requests - add conditional forwarder on your main DNS server to point to this IP
+
+### REDIS
+Name: ope-redis
+DNS: redis.ed
+Status: required/stable
+Memory caching server, used by Canvas and other apps, ports not exposed outside docker network
+
+### Postgresql
+Name: ope-postgresql
+DNS: postgresql.ed
+Status: required/stable
+Database server, used by Canvas and other apps
+
+### FOG
+Name: ope-fog
+DNS: fog.ed
+Status: recommended/stable
+Imaging Server - stores windows images for OPE Laptops, used for network deployment
+
+### Canvas
+Name: ope-canvas
+DNS: canvas.ed
+Status: recommended/stable
+LMS setup to run offline and integrate with OPE project
+
+### SMC
+Name: ope-smc
+DNS: smc.ed
+Status: recommended/stable
+Student Management Console to import student accounts and integrate with Canvas and OPE Laptops
+
+### ClamAV
+Name: ope-clamav
+DNS: clamav.ed
+Status: recommended/beta
+Holds anti-virus patterns for your network
+
+### Khan Lite
+Name: ope-kalite
+DNS: kalite.ed, khan.ed
+Status: optional/beta
+Khan Academy Lite - choose version available in RACHEL server
+
+### CodeCombat
+Name: ope-codecombat
+DNS: codecombat.ed
+Status: optional/beta
+Lean to write code by scripting games in a website and solving puzzles
+
+### GCF Learn Free
+Name: ope-gcf
+DNS: gcf.ed
+Status: optional/ not ready
+Learn basic computer skills - (version also available in RACHEL server)
+
+### FreeCodeCamp
+Name: ope-freecodecamp
+DNS: freecodecamp.ed
+Status: optional/not ready
+Learn to code with lessons and projects from freecodecamp.com
+
+### JSBin
+Name: ope-jsbin
+DNS: jsbin.ed
+Status: optional/not ready
+Javascript learning environment
+
+### RACHEL
+Name: ope-rachel
+DNS: rachel.ed
+Status: optional/not ready
+RACHEL Web server, large library of offline content available as modules
+
+### StackDump
+Name: ope-stackdump
+DNS: stackdump.ed
+Status: optional/not ready
+StackDump is a copy of Stack Overflow filtered for inmate use
+
+### WAMAP
+Name: ope-wamap
+DNS: wamap.ed
+Status: optional/not ready
+Open source math learning system with lesson materials
+
+### WA WSL Re-entry Wiki
+Name: ope-wsl
+DNS: wsl.ed
+Status: optional/beta
+WA State Library wiki with re-entry resources
+
 
 # Deployment Steps
 
@@ -115,9 +230,6 @@ We utilize Docker containers for micro services. You will need a machine that ca
 8. Setup DNS forwarder to .ed domain name to the static IP of the server. This forwards all DNS queries for the .ed domain to the docker apps to resolve DNS automatically
    - For Active Directory DNS - add a conditional forwarder for the domain ed -> to the static IP (put in the correct IP for the online or offline server)
    - For Linux DNS users, a wildcard DNS should work too if you don't know how to do a conditional forwarder
-
-  
-   
    
    
 ## Getting Started - Developers
@@ -149,7 +261,7 @@ Use this method to get everything ready to do development.
 
 4. Start the apps: ./up.sh  (use ./up.sh b  if you want to build the docker apps from here) 
 
-5. From here you can also use docker-compose commands:
+5. From here you can also use docker-compose commands in place of the up.sh command
    - python ../build_tools/rebuild_compose.py  --> rebuilds the docker-compose file based on activated apps
    - docker-compose up -d   --> start up all enabled apps
    - docker-compose down    --> stop all apps
@@ -160,69 +272,3 @@ Revising to use dockerhub to pull built images as well as include client tools/e
 This is currently in process and could mean breaking changes to the prev build process.
 
 
-## Github / Why / How
-https://medium.freecodecamp.org/a-developers-introduction-to-github-1034fa55c0db
-
-## DHCP Settings - to allow FOG Server to do network imaging with PXE Boot
-
-### DHCP Settings for Endian Firewall
-```
-option space PXE;
-option PXE.mtftp-ip    code 1 = ip-address;
-option PXE.mtftp-cport code 2 = unsigned integer 16;
-option PXE.mtftp-sport code 3 = unsigned integer 16;
-option PXE.mtftp-tmout code 4 = unsigned integer 8;
-option PXE.mtftp-delay code 5 = unsigned integer 8;
-option arch code 93 = unsigned integer 16; # RFC4578
-use-host-decl-names on;
-ddns-update-style interim;
-ignore client-updates;
-authoritative;
-allow booting;
-allow bootp;
-option option-128 code 128 = string;
-option option-129 code 129 = text;
-next-server fog.ed;
-#filename "pxelinux.0";
-#filename "snponly.efi";
-#filename "ipxe.efi";
-option tftp-server-name "fog.ed";
-#option bootfile-name "pelinux.0";
-#option bootfile-name "undionly.kpxe";  # works for vmplayer
-#option bootfile-name "snponly.efi";
-#option bootfile-name "ipxe.efi";
-#range dynamic-bootp 192.168.10.25 192.168.10.28;
-
-class "UEFI-32-1" {
-    match if substring(option vendor-class-identifier, 0, 20) = "PXEClient:Arch:00006";
-    filename "i386-efi/ipxe.efi";
-    }
-
-    class "UEFI-32-2" {
-    match if substring(option vendor-class-identifier, 0, 20) = "PXEClient:Arch:00002";
-     filename "i386-efi/ipxe.efi";
-    }
-
-    class "UEFI-64-1" {
-    match if substring(option vendor-class-identifier, 0, 20) = "PXEClient:Arch:00007";
-     #filename "ipxe.efi";
-     filename "snp.efi";  # works for hyperv
-    }
-
-    class "UEFI-64-2" {
-    match if substring(option vendor-class-identifier, 0, 20) = "PXEClient:Arch:00008";
-     #filename "ipxe.efi";
-     filename "snp.efi"; # Works for hyper v
-    }
-
-    class "UEFI-64-3" {
-    match if substring(option vendor-class-identifier, 0, 20) = "PXEClient:Arch:00009";
-     #filename "ipxe.efi";
-     filename "snp.efi"; # Works for hyperv
-    }
-
-    class "Legacy" {
-    match if substring(option vendor-class-identifier, 0, 20) = "PXEClient:Arch:00000";
-    filename "undionly.kkpxe";
-    }
-```
