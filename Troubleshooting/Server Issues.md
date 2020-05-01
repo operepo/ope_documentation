@@ -1,6 +1,17 @@
 
 # Troubleshooting Server Issues
 
+## Weird network errors?
+Docker uses an internal NAT network of 172.17.0.0/16.  If you run on a private network of 172.17.?? you might need to switch the docker network to a new subnet to prevebt routing issues.
+#### Turn off all apps
+cd /ope/docker_build_files; docker-compose down; service docker stop;
+#### Edit /etc/docker/daemon.json
+{ "bip": "192.168.200.1/16" }
+#### Start docker/apps
+cd /ope/docker_build_files; service docker start; ./up.sh;
+
+
+
 ## Apps won't start?
 Sometimes docker will get stuck. First thing to try is use the Utility button on the Sync App and tell it to restart the apps. If that doesn't work, you can try some manual things.
 

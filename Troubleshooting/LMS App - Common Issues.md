@@ -22,7 +22,18 @@ For the LMS app to work, you need to run the laptop credential tool which applie
 ## Courses not showing up after sync
 - Make sure the student is enrolled in Canvas
 - Make sure the course is published - any courses, modules, etc... that aren't published won't be visible to the student in the LMS app
+- Make sure the student has "Accepted" the enrollment in canvas - When adding a student to a course from canvas (not via the SMC) the student needs to login to the desktop and "Accept" the course before it shows up in their dashboard. Only courses in their dashboard will show up in the LMS app
 
+
+## Why aren't assignments/modules showing up?
+- Dates set? - If you set a date for an item, it will NOT show up in the LMS App until that date arrives. Make sure to remove dates or adjust them so that they are open prior to syncing.
+ 
+
+## Corrupted Downloads
+- If you are getting corrupted downloads, especially video files, check that your sync box is up to date. The original sync boxes had a cloned MAC address on their network port which meant that multiple sync boxes were using the same MAC address. Weird things happen when you have duplicate MAC addresses. Run the update from the SyncApp - it is under the utilities button. Ask for the proper password for the sync box.
 
 ## Known Bugs
-- Assignments are flaky - not all sync, no good messages yet to warn why
+- Assignments - File uploads work, others do not yet
+- Very Fast Sync? - If the sync is done in less then 15 seconds, it likely didn't work. Close the LMS app and try again.
+
+
