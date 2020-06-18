@@ -3,7 +3,7 @@ It is a struggle to install and manage online services in an offline world. Simp
 
 The goal here is to create a tool where we can package apps that can be easily copied to a USB drive, then pushed to a server in the offline environment.
 
-This project consists of building and staging of apps, easy deployment into facilities, and offline laptops that students can take back to their unit to continue their school work.
+This project consists of building and staging of apps, easy deployment into facilities, and offline laptops that students can take back to their unit to continue their school work in a secure manor.
 
 # Project Goals
 
@@ -14,22 +14,28 @@ This project consists of building and staging of apps, easy deployment into faci
 3) Provide laptop images that can sync to a learning management system, credential for an individual student, and apply security settings to keep the system secure during use
 
 # Project Members
-- Project Lead:
-    - Brian Walsh <bwalsh@sbctc.edu>
+- Project Administration:
+    - Pat Siebert <pseibert-love@sbctc.edu>
 - Software Development:
     - Ray Pulsipher <rpulsipher@pencol.edu>
     - Kent James <kent@caspia.com>
 - Product Testing:
     - Mike Huse <mdhuse@DOC1.WA.GOV>
     - Daniel Gonzales <dgonzales@DOC1.WA.GOV>
+    - Tyler Goggins <tmgoggans@DOC1.WA.GOV>
 - Docker App Development:
+    - Ray Pulsipher <rpulsipher@pencol>
     - Kris Gonyo <kristophergonyo@gmail.com>
 - Fabrication
     - Kristopher Margart <kwmargart@DOC1.WA.GOV>
+- Special Contributions:
+    - Allan Soper <aesoper@DOC1.WA.GOV> - DOC Side support and security consulting
+    - Brian Walsh <bwalsh@Vera.org> - Original vision and responsible getting this project started. None of this exists without his support
 
 # Documentation
-You can find documentation here: https://github.com/operepo/ope_documentation
-And video tutorials here: https://github.com/operepo/ope_vids
+- We have some google docs made by the WA State SBCTC with instructions on things like how to use the SMC and convert course materials to be ready for offline use: https://docs.google.com/document/d/1kr5rHkqa1kfSc9xw2JQDk9fnk75D_jfTW6yV_Nb_EVQ/edit
+- You can find documentation here: https://github.com/operepo/ope_documentation
+- Video tutorials on doing the setup and syncing process are here: https://github.com/operepo/ope_vids
     
 # Available Apps
 

@@ -65,6 +65,7 @@ HKLM\Software\OPE -- Readonly attributes for students
  - canvas_access_token - Secure token for canvas access - generated in student account during credential
  - canvas_url - http url for the canvas server
  - smc_url - http url for the SMC server
+ - install_branch - git branch to install from - default is master
   
 HKLM\Software\OPE\OPELMS -- Readonly attributes for students
  - has_synced_with_canvas - true -- Have we synced at least once?
