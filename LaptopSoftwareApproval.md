@@ -36,6 +36,7 @@ If you have questions about software that is approved for use in supervised educ
 - Adobe Design Products (Photoshop, Illustrator, etc...) - OK if using offline activation - no internet required
 - Atom & Packages - OK if no system libraries
 - Scout (Sass compiler) - OK
+- Visual Studio Code - OK
   
 # NEEDS ADDITIONAL RESEARCH - NOT APPROVED FOR LAPTOP DEPLOYMENT
 - Internet in a box (??? Waiting for more info  http://internet-in-a-box.org/ ?) - need content approved
