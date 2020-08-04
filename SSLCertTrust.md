@@ -10,6 +10,9 @@ You can install it, or install it into the group policy (trusted CA certs) on yo
 
 This should work for IE and Chrome.
 
+Add the CA Cert here in your group policy:
+GPO Path - Computer Policies --> Windows Settings --> Security Settings --> Public Key Policies --> Trusted Root Certificate Authorities
+
 # Firefox
 
 Try setting the option in firefox to make it automatically import trusted system certs.
