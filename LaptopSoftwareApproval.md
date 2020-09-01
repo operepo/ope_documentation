@@ -37,7 +37,8 @@ If you have questions about software that is approved for use in supervised educ
 - Atom & Packages - OK if no system libraries
 - Scout (Sass compiler) - OK
 - Visual Studio Code - OK
-  
+- SpeedCrunch Calculator - (Use portable version - http://www.speedcrunch.org/download.html)
+
 # NEEDS ADDITIONAL RESEARCH - NOT APPROVED FOR LAPTOP DEPLOYMENT
 - Internet in a box (??? Waiting for more info  http://internet-in-a-box.org/ ?) - need content approved
 - WAMAP - Math LMS System (https://www.wamap.org/) - Approved - No windows version exists yet
