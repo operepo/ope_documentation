@@ -1,6 +1,14 @@
 
 # Troubleshooting Server Issues
 
+## Can't Connect To Server - apps are up
+It may appear that things are listening (netstat -an) on port 80 or 443 but you are unable to connect. It may also appear that port 80/443 are listening on tcp6 (ipv6) but not ip4. You may need to enable ip4 forwarding.
+
+#### One time enable
+sysctl -w net.ipv4.ip_forward=1
+#### Enable after reboot - add to /etc/sysctl.conf
+net.ipv4.ip_forward = 1
+
 ## Weird network errors?
 Docker uses an internal NAT network of 172.17.0.0/16.  If you run on a private network of 172.17.?? you might need to switch the docker network to a new subnet to prevebt routing issues.
 #### Turn off all apps
