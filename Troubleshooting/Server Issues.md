@@ -62,3 +62,28 @@ Warning: This may take several minutes and put a load on the server - services m
 
 - Cleaup app that are stopped: `docker rm -v $(docker ps -a -q -f status=exited)`
 - Cleanup old images that aren't referenced anymore: `docker rmi $(docker images -q -f dangling=true)`
+
+
+### Canvas won't start after upgrade
+During update from an older version of Canvas, it has been reported that the database migration gets stuck due to a constraint on the role_overrides table.  This should show up as a message in the canvas logs (view logs from sync app).  You end up with a stack trace referring to the role_overrides table and a constraint named fk_rails_ed57234287.
+
+To fix this, the ope-postgresql app should be up and running. Login to the OPE server via Putty and do the following:
+
+Go to the right folder
+
+`
+cd /ope/docker_build_files
+`
+
+Then run this command to tell postgres to drop the constraint on that table (Note where single quotes are - the ope-postgresql needs to be running):
+
+`docker-compose exec ope-postgresql psql -U postgres -d canvas_production -c 'ALTER TABLE role_overrides DROP CONSTRAINT fk_rails_ed57234287;'
+`
+
+At this point, if canvas is failing and restarting, you can let it just restart and next time it will succeed in migrating things and starting up. Give it 5-10 minutes to finish.
+
+If you are impatient, you can bring it all down and back up (run this from the /ope/docker_build_files folder);
+
+`
+docker-compose down; ./up.sh
+`
