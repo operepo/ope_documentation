@@ -15,7 +15,7 @@ This project consists of building and staging of apps, easy deployment into faci
 
 # Project Members
 - Project Administration:
-    - Patricia R. Seibert-Love <pseibert-love@sbctc.edu>
+    - Andy Duckworth <aduckworth@sbctc.edu>
 - Lead Developer, System Architect:
     - Ray Pulsipher <rpulsipher@pencol.edu>
 - Testing/Development/Technical Support:
@@ -32,7 +32,7 @@ This project consists of building and staging of apps, easy deployment into faci
     - Allan Soper <aesoper@DOC1.WA.GOV> - DOC Side support and security consulting
     - Kris Gonyo <kristophergonyo@gmail.com> - for past tech work/testing
     - Kent James <kent@caspia.com> - for past tech work/testing
-
+    - Patricia R. Seibert-Love
 # Documentation
 - We have some google docs made by the WA State SBCTC with instructions on things like how to use the SMC and convert course materials to be ready for offline use: https://docs.google.com/document/d/1kr5rHkqa1kfSc9xw2JQDk9fnk75D_jfTW6yV_Nb_EVQ/edit
 - You can find documentation here: https://github.com/operepo/ope_documentation
@@ -174,7 +174,7 @@ We utilize Docker containers for micro services. You will need a machine that ca
   |  - or on your desktop in virtual box/hyper-v/vmware/etc...           |
   |                                                                      |
   | Pre built Linux with Docker Available Here:                          |
-  | - https://susestudio.com/a/P08rUy/ope-docker                         |
+  | - http://dl.correctionsed.com/resources/OPELinux-rel1.iso            |
   |                                                                      |
   +------------------^---------------------------------------------------+
                      |
@@ -196,7 +196,7 @@ We utilize Docker containers for micro services. You will need a machine that ca
                                     | be pushed into this system                                 |
                                     |                                                            |
                                     | Use the same docker system as the online system:           |
-                                    | - https://susestudio.com/a/P08rUy/ope-docker               |
+                                    | - http://dl.correctionsed.com/resources/OPELinux-rel1.iso  |
                                     +--^----------------------------------------------------------+
                                        |
                                        |
@@ -211,10 +211,9 @@ We utilize Docker containers for micro services. You will need a machine that ca
 
 ## Getting Started
 1. Get a linux distro with docker installed in both your online and offline servers:
-   - Linux image ready to go (ISO - burn to DVD): http://dl.correctionsed.com/resources/OPE_Docker.x86_64-0.0.10.preload.iso
-   (broken link https://susestudio.com/a/P08rUy/ope-docker)
+   - Linux image ready to go (ISO - burn to DVD): http://dl.correctionsed.com/resources/OPELinux-rel1.iso   
    - Assign a static IP address to each server and write it down
-   - Login with root (password: changeme) and use the passwd utility to change to a secure password
+   - Login with user ope (password: changeme) and use the passwd utility to change to a secure password
 
 2. From online computer, download the OPE Git project at: https://github.com/operepo/ope
    - From the GREEN button, click and choose "Download Zip".
@@ -243,7 +242,7 @@ We utilize Docker containers for micro services. You will need a machine that ca
 Use this method to get everything ready to do development.
 
 1. Get a linux distro with docker installed in both your online and offline servers:
-   - Linux image ready to go (ISO - burn to DVD): https://susestudio.com/a/P08rUy/ope-docker
+   - Linux image ready to go (ISO - burn to DVD): http://dl.correctionsed.com/resources/OPELinux-rel1.iso
    - Assign a static IP address to each server and write it down
 
 2. Install Git
